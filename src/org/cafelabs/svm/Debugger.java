@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import static java.lang.System.out;
+
 /**
  * This class provides an emulation of debugger's work. The SVM goes into the debug mode after executing the
  * DEBUG opcode or after the start-up if -debug option was specified in the command line.
@@ -21,6 +23,7 @@ import java.util.StringTokenizer;
  */
 
 public class Debugger {
+    public static final String WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP = "Wrong command parameters. Type 'help' to show help";
     private static String line;
     private static String parameters[];
     public static boolean isDebugModeEnable = false;
@@ -70,12 +73,12 @@ public class Debugger {
 
     public static void startDebug() {
         isDebugModeEnable = true;
-        System.out.println("\nWelcome to SVM");
-        System.out.println("SVM is in the debug Mode");
+        out.println("\nWelcome to SVM");
+        out.println("SVM is in the debug Mode");
         Scanner input = new Scanner(System.in);
 
         while (isDebugModeEnable) {
-            System.out.print(">>");
+            out.print(">>");
             line = input.nextLine();
             StringTokenizer strTok = new StringTokenizer(line, " ");
             String userChoise = strTok.nextToken();
@@ -95,8 +98,7 @@ public class Debugger {
                         continue;
                     case Debugger.LOAD_RAM:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -105,8 +107,7 @@ public class Debugger {
                         continue;
                     case Debugger.STORE_RAM:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -115,8 +116,7 @@ public class Debugger {
                         continue;
                     case Debugger.READ:
                         if (!(strTok.hasMoreTokens())) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -128,8 +128,7 @@ public class Debugger {
                         continue;
                     case Debugger.CODE:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -138,8 +137,7 @@ public class Debugger {
                         continue;
                     case Debugger.UNCODE:
                         if (strTok.countTokens() != 2) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -149,8 +147,8 @@ public class Debugger {
                         continue;
                     case Debugger.ERASE:
                         if (strTok.countTokens() != 2) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out
+                                    .println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -160,8 +158,7 @@ public class Debugger {
                         continue;
                     case Debugger.CP:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -170,8 +167,7 @@ public class Debugger {
                         continue;
                     case Debugger.OP:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -180,8 +176,7 @@ public class Debugger {
                         continue;
                     case Debugger.DP:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -190,8 +185,7 @@ public class Debugger {
                         continue;
                     case Debugger.RP:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -200,8 +194,7 @@ public class Debugger {
                         continue;
                     case Debugger.SP:
                         if (strTok.countTokens() != 1) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         parameters = new String[strTok.countTokens()];
@@ -210,8 +203,7 @@ public class Debugger {
                         continue;
                     case Debugger.HELP:
                         if (strTok.countTokens() != 0) {
-                            System.out
-                                    .println("Wrong command parameters. Type 'help' to show help");
+                            out.println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
                             continue;
                         }
                         help();
@@ -220,7 +212,7 @@ public class Debugger {
                         exit();
 
                 }
-            System.out.println("Unknow command '" + userChoise
+            out.println("Unknow command '" + userChoise
                     + "'. Type 'help' to show help");
         }
     }
@@ -230,38 +222,24 @@ public class Debugger {
      */
 
     private static void help() {
-        System.out.println("Possible commands are:");
-        System.out
-                .println("start           	   	  - restart execution cycle from current CP position");
-        System.out
-                .println("restart        	          - restart execution cycle from the 0x00 position");
-        System.out
-                .println("step    			   	  - execute single instruction execution cycle");
-        System.out
-                .println("dump    			   	  - CPU and RAM dump (optional parameters - address and length)");
-        System.out
-                .println("load [filename] 	      - loads ROM image from file");
-        System.out.println("store [filename]          - store RAM on the file");
-        System.out
-                .println("read .. 				  - read values/mnemonics from console to memory starting from DP");
-        System.out
-                .println("code [filename] 		  - read and translate values from file starting from DP");
-        System.out
-                .println("uncode [address], length] - dissasembler memory region");
-        System.out
-                .println("erase [shift]][length]    - fill area of memory with 0x00");
-        System.out
-                .println("cp [xx]			    	  - assigns new value to CP register");
-        System.out
-                .println("op [xx]				   	  - assigns new value to OP register");
-        System.out
-                .println("dp [xx]				   	  - assigns new value to DP register");
-        System.out
-                .println("rp [xx]				   	  - assigns new value to RP register");
-        System.out
-                .println("sp [xx]				   	  - assigns new value to SP register");
-        System.out.println("help				   	  - display this message");
-        System.out.println("exit				   	  - stop SVM and exit");
+        out.println("Possible commands are:");
+        out.println("start           	   	  - restart execution cycle from current CP position");
+        out.println("restart        	          - restart execution cycle from the 0x00 position");
+        out.println("step    			   	  - execute single instruction execution cycle");
+        out.println("dump    			   	  - CPU and RAM dump (optional parameters - address and length)");
+        out.println("load [filename] 	      - loads ROM image from file");
+        out.println("store [filename]          - store RAM on the file");
+        out.println("read .. 				  - read values/mnemonics from console to memory starting from DP");
+        out.println("code [filename] 		  - read and translate values from file starting from DP");
+        out.println("uncode [address], length] - dissasembler memory region");
+        out.println("erase [shift]][length]    - fill area of memory with 0x00");
+        out.println("cp [xx]			    	  - assigns new value to CP register");
+        out.println("op [xx]				   	  - assigns new value to OP register");
+        out.println("dp [xx]				   	  - assigns new value to DP register");
+        out.println("rp [xx]				   	  - assigns new value to RP register");
+        out.println("sp [xx]				   	  - assigns new value to SP register");
+        out.println("help				   	  - display this message");
+        out.println("exit				   	  - stop SVM and exit");
     }
 
     /**
@@ -277,11 +255,9 @@ public class Debugger {
      */
 
     private static void restart() {
-
         changeCP(0x00);
         isDebugModeEnable = false;
         CPU.execution();
-
     }
 
     /**
@@ -303,13 +279,11 @@ public class Debugger {
     /**
      * Store RAM on the file.
      *
-     * @param String[] params
-     * @throws IOException {@inheritDoc}
      */
 
     private static void storeRam(String[] params) {
         String fileName = params[0];
-        DataOutputStream out;
+        DataOutputStream out ;
         try {
             out = new DataOutputStream(new FileOutputStream(fileName));
             for (int i = 0; i < Memory.ram.length; i++) {
@@ -323,9 +297,6 @@ public class Debugger {
 
     /**
      * Load RaM-image from file.
-     *
-     * @param String[] params
-     * @throws IOException {@inheritDoc}
      */
 
     private static void loadRam(String[] params) {
@@ -349,8 +320,7 @@ public class Debugger {
 
     /**
      * Read values/mnemonics from console to memory starting from OP.
-     *
-     * @param String[] param
+
      */
 
     private static void read(String[] param) {
@@ -362,9 +332,6 @@ public class Debugger {
 
     /**
      * Read and translate values from file starting from OP.
-     *
-     * @param String[] param
-     * @throws IOBoundsException, FileNotFoundException  {@inheritDoc}
      */
 
     private static void code(String[] param) {
@@ -395,8 +362,6 @@ public class Debugger {
     /**
      * Disassemble memory region.
      *
-     * @param String[] param
-     * @throws NumberFormatException {@inheritDoc}
      */
 
     private static void uncode(String[] param) {
@@ -406,26 +371,25 @@ public class Debugger {
             address = Integer.parseInt(param[0]);
             length = Integer.parseInt(param[1]);
         } catch (NumberFormatException e) {
-            System.out
-                    .println("Wrong command parameters. Type 'help' to show help");
+            out
+                    .println(WRONG_COMMAND_PARAMETERS_TYPE_HELP_TO_SHOW_HELP);
             return;
         }
         if ((address > Memory.ram.length)
                 || (address + length > Memory.ram.length)) {
-            System.out.println("Out of memory");
+            out.println("Out of memory");
             return;
         }
 
         for (int i = 0; i < length; i++) {
-            System.out.print(Opcode.convertBack(Memory.ram[address + i]) + " ");
+            out.print(Opcode.convertBack(Memory.ram[address + i]) + " ");
         }
-        System.out.println();
+        out.println();
     }
 
     /**
      * Fill area of memory with 0x00
      *
-     * @param String[] param
      */
 
     private static void erase(String[] param) {
@@ -441,7 +405,6 @@ public class Debugger {
     /**
      * Assigns new value to CP register.
      *
-     * @param String[] param
      */
 
     private static void changeCP(String[] param) {
@@ -451,7 +414,6 @@ public class Debugger {
     /**
      * Assigns new value to CP register.
      *
-     * @param int param
      */
 
     private static void changeCP(int param) {
@@ -461,7 +423,6 @@ public class Debugger {
     /**
      * Assigns new value to OP register.
      *
-     * @param int param
      */
 
 
@@ -472,7 +433,6 @@ public class Debugger {
     /**
      * Assigns new value to DP register.
      *
-     * @param int param
      */
 
     private static void changeDP(String[] param) {
@@ -482,7 +442,6 @@ public class Debugger {
     /**
      * Assigns new value to RP register.
      *
-     * @param int param
      */
 
     private static void changeRP(String[] param) {
@@ -492,7 +451,6 @@ public class Debugger {
     /**
      * Assigns new value to SP register.
      *
-     * @param int param
      */
 
     private static void changeSP(String[] param) {

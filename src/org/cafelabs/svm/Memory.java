@@ -2,7 +2,7 @@ package org.cafelabs.svm;
 
 //last version
 public class Memory {
-    static Integer ram[] = new Integer[1024];
+    static Integer ram[] = new Integer[128];
 
     //static String rom[] = new String[8];
     static {

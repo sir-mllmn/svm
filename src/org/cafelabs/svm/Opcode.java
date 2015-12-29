@@ -1,11 +1,12 @@
 package org.cafelabs.svm;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 final class Opcode {
 
-    static Hashtable<String, Integer> mnemonics = new Hashtable<String, Integer>();
-    static Hashtable<Integer, String> opcodes = new Hashtable<Integer, String>();
+    static Map<String, Integer> mnemonics = new HashMap<>();
+    static Map<Integer, String> opcodes = new HashMap<>();
 
     static {
 
@@ -175,14 +176,13 @@ final class Opcode {
      */
 
     public static int convert(String code) {
-        if (code.equals(""))
+        if (code.equals("")) {
             return 0;
-        else if (mnemonics.get(code) != null)
+        } else if (mnemonics.get(code) != null) {
             return mnemonics.get(code);
-        else {
+        } else {
             try {
-                int i = Integer.parseInt(code);
-                return i;
+                return Integer.parseInt(code);
             } catch (Exception e) {
                 try {
                     if ((code.charAt(0) == '0') && (code.charAt(1) == 'X'))
@@ -201,10 +201,9 @@ final class Opcode {
      */
 
     public static String convertBack(int opcode) {
-        if (opcodes.get(opcode) != null)
+        if (opcodes.get(opcode) != null) {
             return opcodes.get(opcode);
-        else
-            return String.valueOf(opcode);
-
+        }
+        return String.valueOf(opcode);
     }
 }

@@ -10,7 +10,6 @@ public class CPU {
     static int dp = Memory.ram.length / 4;
     static int rp = Memory.ram.length;
     static int sp = Memory.ram.length * 3 / 4;
-    ;
 
     /**
      * Read commands from console and save its in ROM
@@ -28,13 +27,6 @@ public class CPU {
             Memory.setRam(index, Opcode.convert(str));
             index++;
         }
-        /*
-		 * for (int i = cp; i < index; i++) { if
-		 * (Opcode.opcodes.get(Memory.getRam(i)).equals("PUSH")){
-		 * System.out.print(Opcode.opcodes.get(Memory.getRam(i)) + " " +
-		 * Memory.getRam(++i)+ " "); } else {
-		 * System.out.print(Opcode.opcodes.get(Memory.getRam(i)) + " "); } }
-		 */
     }
 
     /**
@@ -48,9 +40,7 @@ public class CPU {
                 }
                 case Opcode.LOAD: {
                     int link = pop();
-                    //System.out.println(link);
                     int val = Memory.getRam(link);
-                    //System.out.println(val);
                     push(val);
                     break;
                 }
@@ -143,10 +133,6 @@ public class CPU {
                     Memory.setRam(dp, strSize);
                     for (int i = 0; i < strSize; i++) {
                         Memory.setRam(++dp, (int) str.charAt(i));
-					/*if (dp > 16) {
-						System.out
-								.println("Data segment is FULL to execut READ");
-					}*/
                     }
                     break;
                 }
@@ -206,12 +192,11 @@ public class CPU {
                     break;
                 }
                 case Opcode.DEBUG: {
-                    //cp++;
-                    if (Debugger.isDebugModeEnable == false)
+                    if (Debugger.isDebugModeEnable == false) {
                         Debugger.startDebug();
-                    else
+                    } else {
                         execution();
-                    //--cp;
+                    }
                     cp++;
                     break;
                 }
